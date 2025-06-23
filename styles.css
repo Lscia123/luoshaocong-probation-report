@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* 渐变背景动画 */
+.hero-section {
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 悬浮效果 */
+.transform:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* 导航栏效果 */
+nav {
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+nav a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #3B82F6;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #3B82F6;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* 卡片效果 */
+.shadow-lg {
+    transition: all 0.3s ease;
+}
+
+.shadow-lg:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+}
+
+/* 按钮效果 */
+button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* 列表项动画 */
+ul li {
+    transition: all 0.3s ease;
+}
+
+ul li:hover {
+    transform: translateX(10px);
+    color: #3B82F6;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* 文字渐入效果 */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+    
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    nav .space-x-6 {
+        display: none;
+    }
+}
+
+/* 特殊效果 */
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+}
+
+.bg-opacity-10 {
+    background-opacity: 0.1;
+}
+
+/* 项目卡片特殊效果 */
+.rounded-t-xl {
+    position: relative;
+    overflow: hidden;
+}
+
+.rounded-t-xl::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.rounded-t-xl:hover::before {
+    animation: shimmer 1.5s ease-in-out;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* 确保OKR项目背景显示正确 */
+.bg-gradient-to-r.from-orange-500.to-red-500 {
+    background: linear-gradient(to right, #f97316, #ef4444) !important;
+    color: white !important;
+}
+
+/* 确保FontAwesome图标正确加载 */
+.fas {
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+}
+
+/* 强制显示图标 */
+.fa-target::before { content: "\f140"; }
+.fa-sitemap::before { content: "\f0e8"; }
+.fa-book::before { content: "\f02d"; }
+.fa-search::before { content: "\f002"; }
+.fa-cog::before { content: "\f013"; }
+.fa-rocket::before { content: "\f135"; } 
